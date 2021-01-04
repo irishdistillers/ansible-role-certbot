@@ -18,7 +18,7 @@ certbot_certs: []
 # - domains:
 #     - example3.com
 certbot_create_command: >-
-  {{ certbot_script }} certonly --cert-name cert_item.domains[0] --standalone --noninteractive --agree-tos --expand
+  {{ certbot_script }} certonly --cert-name {{ cert_item.domains[0] }} --standalone --noninteractive --agree-tos --expand
   --email {{ cert_item.email | default(certbot_admin_email) }}
   -d {{ cert_item.domains | join(',') }}
 
